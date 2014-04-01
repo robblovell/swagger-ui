@@ -323,7 +323,9 @@ var SwaggerResource = function(resourceObj, api) {
   this.description = resourceObj.description;
 
   var parts = this.path.split("/");
-  this.name = parts[parts.length - 1].replace('.{format}', '');
+  parts2 = parts[parts.length - 1].split("?");
+  this.name = parts2[0].replace('.{format}', '');
+
   this.basePath = this.api.basePath;
   this.operations = {};
   this.operationsArray = [];
